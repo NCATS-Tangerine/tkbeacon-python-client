@@ -16,9 +16,7 @@
 from __future__ import absolute_import
 
 # import apis into sdk package
-from tkbeacon.api.concepts_api import ConceptsApi
-from tkbeacon.api.metadata_api import MetadataApi
-from tkbeacon.api.statements_api import StatementsApi
+from tkbeacon.api.beacon_api import BeaconApi
 
 # import ApiClient
 from tkbeacon.api_client import ApiClient
@@ -42,4 +40,4 @@ from tkbeacon.models.beacon_statement_subject import BeaconStatementSubject
 from tkbeacon.models.beacon_statement_with_details import BeaconStatementWithDetails
 from tkbeacon.models.exact_match_response import ExactMatchResponse
 
-from tkbeacon.beaconclient import KnowledgeSource, BeaconClient
+from tkbeacon.utils import build, KnowledgeSource

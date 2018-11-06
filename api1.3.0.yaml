@@ -16,12 +16,8 @@ schemes:
 produces:
   - application/json
 tags:
-  - name: metadata
-    description: Queries about global characteristics of the knowledge source
-  - name: concepts
-    description: Queries relating to concepts
-  - name: statements
-    description: Queries relating to concept-relationship statements and their evidence
+  - name: beacon
+    description: Queries for Translator Knowledge Beacons
 paths:
   /categories:
     get:
@@ -33,7 +29,7 @@ paths:
         frequency of -1 indicates the category can exist, but the count is
         unknown.
       tags:
-        - metadata
+        - beacon
       operationId: getConceptCategories
       responses:
         '200':
@@ -73,7 +69,7 @@ paths:
         Get a list of predicates used in statements issued by the knowledge
         source
       tags:
-        - metadata
+        - beacon
       operationId: getPredicates
       responses:
         '200':
@@ -126,7 +122,7 @@ paths:
         Get a high level knowledge map of the all the beacons by subject
         semantic type, predicate and semantic object type
       tags:
-        - metadata
+        - beacon
       operationId: getKnowledgeMap
       responses:
         '200':
@@ -249,7 +245,7 @@ paths:
         keyword matches or out-of-order keyword matches,
         should be returned lower in the list.
       tags:
-        - concepts
+        - beacon
       parameters:
         - name: keywords
           in: query
@@ -341,7 +337,7 @@ paths:
         by a (url-encoded) CURIE identifier of a concept known the given
         knowledge source.
       tags:
-        - concepts
+        - beacon
       parameters:
         - name: concept_id
           in: path
@@ -467,7 +463,7 @@ paths:
         caller of this endpoint can then decide whether or not to treat  its
         input identifiers as its own equivalent set.
       tags:
-        - concepts
+        - beacon
       parameters:
         - name: c
           in: query
@@ -534,7 +530,7 @@ paths:
         That is, if the 's' concept matches a subject, then the 't' concept
         should match the object of a given statement (or vice versa).
       tags:
-        - statements
+        - beacon
       parameters:
         - name: s
           in: query
@@ -758,7 +754,7 @@ paths:
         edge properties exported as tag = value; and any associated annotations
         (publications, etc.)  cited as evidence for the given statement.
       tags:
-        - statements
+        - beacon
       parameters:
         - name: statement_id
           in: path

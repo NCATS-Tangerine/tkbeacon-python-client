@@ -39,3 +39,5 @@ from tkbeacon.models.beacon_statement_predicate import BeaconStatementPredicate
 from tkbeacon.models.beacon_statement_subject import BeaconStatementSubject
 from tkbeacon.models.beacon_statement_with_details import BeaconStatementWithDetails
 from tkbeacon.models.exact_match_response import ExactMatchResponse
+
+from tkbeacon.utils import build, KnowledgeSource

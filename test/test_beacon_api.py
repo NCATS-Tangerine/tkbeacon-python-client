@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import tkbeacon
-from tkbeacon.api.beacon_api import BeaconApi  # noqa: E501
+from tkbeacon import build, KnowledgeSource
 from tkbeacon.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestBeaconApi(unittest.TestCase):
     """BeaconApi unit test stubs"""
 
     def setUp(self):
-        self.api = tkbeacon.api.beacon_api.BeaconApi()  # noqa: E501
+        self.api = build(KnowledgeSource.SMPDB)
 
     def tearDown(self):
         pass
@@ -33,7 +33,9 @@ class TestBeaconApi(unittest.TestCase):
         """Test case for get_concept_categories
 
         """
-        pass
+        categories = self.api.get_concept_categories()
+        if len(categories) < 1:
+            self.fail('Categories must not be empty')
 
     def test_get_concept_details(self):
         """Test case for get_concept_details
@@ -45,7 +47,14 @@ class TestBeaconApi(unittest.TestCase):
         """Test case for get_concepts
 
         """
-        pass
+        concepts = self.api.get_concepts(keywords='H2')
+
+        if len(concepts) < 1:
+            self.fail('Concepts should not be empty')
+
+        for concept in concepts:
+            if 'H2' not in concept.name:
+                self.fail('get_concepts filter keywords=["H2"] failed for {}'.format(concept.id))
 
     def test_get_exact_matches_to_concept_list(self):
         """Test case for get_exact_matches_to_concept_list

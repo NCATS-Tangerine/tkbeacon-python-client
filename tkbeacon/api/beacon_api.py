@@ -226,9 +226,9 @@ class BeaconApi(object):
 
         :param async bool
         :param list[str] keywords: (Optional) array of keywords or substrings against which to match concept names and synonyms
-        :param list[str] categories: (Optional) array set of concept categories - specified as Biolink name labels codes gene, pathway, etc. - to which to constrain concepts matched by the main keyword search (see [Biolink Model](https://biolink.github.io/biolink-model) for the full list of terms) 
-        :param int offset: offset (cursor position) to next batch of statements of amount 'size' to return. 
-        :param int size: maximum number of concept entries requested by the client; if this argument is omitted, then the query is expected to returned all the available data for the query 
+        :param list[str] categories: (Optional) array set of concept categories - specified as Biolink name labels codes gene, pathway, etc. - to which to constrain concepts matched by the main keyword search (see [Biolink Model](https://biolink.github.io/biolink-model) for the full list of terms)
+        :param int offset: offset (cursor position) to next batch of statements of amount 'size' to return.
+        :param int size: maximum number of concept entries requested by the client; if this argument is omitted, then the query is expected to returned all the available data for the query
         :return: list[BeaconConcept]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -251,9 +251,9 @@ class BeaconApi(object):
 
         :param async bool
         :param list[str] keywords: (Optional) array of keywords or substrings against which to match concept names and synonyms
-        :param list[str] categories: (Optional) array set of concept categories - specified as Biolink name labels codes gene, pathway, etc. - to which to constrain concepts matched by the main keyword search (see [Biolink Model](https://biolink.github.io/biolink-model) for the full list of terms) 
-        :param int offset: offset (cursor position) to next batch of statements of amount 'size' to return. 
-        :param int size: maximum number of concept entries requested by the client; if this argument is omitted, then the query is expected to returned all the available data for the query 
+        :param list[str] categories: (Optional) array set of concept categories - specified as Biolink name labels codes gene, pathway, etc. - to which to constrain concepts matched by the main keyword search (see [Biolink Model](https://biolink.github.io/biolink-model) for the full list of terms)
+        :param int offset: offset (cursor position) to next batch of statements of amount 'size' to return.
+        :param int size: maximum number of concept entries requested by the client; if this argument is omitted, then the query is expected to returned all the available data for the query
         :return: list[BeaconConcept]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -602,8 +602,8 @@ class BeaconApi(object):
         :param async bool
         :param str statement_id: (url-encoded) CURIE identifier of the concept-relationship statement (\"assertion\", \"claim\") for which associated evidence is sought  (required)
         :param list[str] keywords: an array of keywords or substrings against which to  filter annotation names (e.g. publication titles).
-        :param int offset: offset (cursor position) to next batch of annotation entries of amount 'size' to return. 
-        :param int size: maximum number of evidence citation entries requested by the client; if this  argument is omitted, then the query is expected to returned all of the available annotation for this statement 
+        :param int offset: offset (cursor position) to next batch of annotation entries of amount 'size' to return.
+        :param int size: maximum number of evidence citation entries requested by the client; if this  argument is omitted, then the query is expected to returned all of the available annotation for this statement
         :return: BeaconStatementWithDetails
                  If the method is called asynchronously,
                  returns the request thread.
@@ -627,8 +627,8 @@ class BeaconApi(object):
         :param async bool
         :param str statement_id: (url-encoded) CURIE identifier of the concept-relationship statement (\"assertion\", \"claim\") for which associated evidence is sought  (required)
         :param list[str] keywords: an array of keywords or substrings against which to  filter annotation names (e.g. publication titles).
-        :param int offset: offset (cursor position) to next batch of annotation entries of amount 'size' to return. 
-        :param int size: maximum number of evidence citation entries requested by the client; if this  argument is omitted, then the query is expected to returned all of the available annotation for this statement 
+        :param int offset: offset (cursor position) to next batch of annotation entries of amount 'size' to return.
+        :param int size: maximum number of evidence citation entries requested by the client; if this  argument is omitted, then the query is expected to returned all of the available annotation for this statement
         :return: BeaconStatementWithDetails
                  If the method is called asynchronously,
                  returns the request thread.
@@ -708,16 +708,16 @@ class BeaconApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param list[str] s: An (optional) array set of [CURIE-encoded](https://www.w3.org/TR/curie/) identifiers of 'source' ('start') concepts possibly known to the beacon. Unknown CURIES should simply be ignored (silent match failure). 
+        :param list[str] s: An (optional) array set of [CURIE-encoded](https://www.w3.org/TR/curie/) identifiers of 'source' ('start') concepts possibly known to the beacon. Unknown CURIES should simply be ignored (silent match failure).
         :param list[str] s_keywords: An (optional) array of keywords or substrings against which to filter 'source' concept names and synonyms
-        :param list[str] s_categories: An (optional) array set of 'source' concept categories (specified as Biolink name labels codes gene, pathway, etc.) to which to constrain concepts matched by the main keyword search (see [Biolink Model](https://biolink.github.io/biolink-model) for the full list of codes) 
-        :param str edge_label: (Optional) predicate edge label against which to constrain the search for statements ('edges') associated with the given query seed concept. The predicate edge_names for this parameter should be as published by the /predicates API endpoint and must be taken from the minimal predicate ('slot') list of the [Biolink Model](https://biolink.github.io/biolink-model). 
-        :param str relation: (Optional) predicate relation against which to constrain the search for statements ('edges') associated with the given query seed concept. The predicate relations for this parameter should be as published by the /predicates API endpoint and the preferred format is a CURIE  where one exists, but strings/labels acceptable. This relation may be equivalent to the edge_label (e.g. edge_label: has_phenotype, relation: RO:0002200), or a more specific relation in cases where the source provides more granularity (e.g. edge_label: molecularly_interacts_with, relation: RO:0002447) 
-        :param list[str] t: An (optional) array set of [CURIE-encoded](https://www.w3.org/TR/curie/) identifiers of 'target' ('opposite' or 'end') concepts possibly known to the beacon. Unknown CURIEs should simply be ignored (silent match failure). 
+        :param list[str] s_categories: An (optional) array set of 'source' concept categories (specified as Biolink name labels codes gene, pathway, etc.) to which to constrain concepts matched by the main keyword search (see [Biolink Model](https://biolink.github.io/biolink-model) for the full list of codes)
+        :param str edge_label: (Optional) predicate edge label against which to constrain the search for statements ('edges') associated with the given query seed concept. The predicate edge_names for this parameter should be as published by the /predicates API endpoint and must be taken from the minimal predicate ('slot') list of the [Biolink Model](https://biolink.github.io/biolink-model).
+        :param str relation: (Optional) predicate relation against which to constrain the search for statements ('edges') associated with the given query seed concept. The predicate relations for this parameter should be as published by the /predicates API endpoint and the preferred format is a CURIE  where one exists, but strings/labels acceptable. This relation may be equivalent to the edge_label (e.g. edge_label: has_phenotype, relation: RO:0002200), or a more specific relation in cases where the source provides more granularity (e.g. edge_label: molecularly_interacts_with, relation: RO:0002447)
+        :param list[str] t: An (optional) array set of [CURIE-encoded](https://www.w3.org/TR/curie/) identifiers of 'target' ('opposite' or 'end') concepts possibly known to the beacon. Unknown CURIEs should simply be ignored (silent match failure).
         :param list[str] t_keywords: An (optional) array of keywords or substrings against which to filter 'target' concept names and synonyms
-        :param list[str] t_categories: An (optional) array set of 'target' concept categories (specified as Biolink name labels codes gene, pathway, etc.) to which to constrain concepts matched by the main keyword search (see [Biolink Model](https://biolink.github.io/biolink-model) for the full list of codes) 
-        :param int offset: offset (cursor position) to next batch of statements of amount 'size' to return. 
-        :param int size: maximum number of concept entries requested by the client; if this argument is omitted, then the query is expected to returned all  the available data for the query 
+        :param list[str] t_categories: An (optional) array set of 'target' concept categories (specified as Biolink name labels codes gene, pathway, etc.) to which to constrain concepts matched by the main keyword search (see [Biolink Model](https://biolink.github.io/biolink-model) for the full list of codes)
+        :param int offset: offset (cursor position) to next batch of statements of amount 'size' to return.
+        :param int size: maximum number of concept entries requested by the client; if this argument is omitted, then the query is expected to returned all  the available data for the query
         :return: list[BeaconStatement]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -739,16 +739,16 @@ class BeaconApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param list[str] s: An (optional) array set of [CURIE-encoded](https://www.w3.org/TR/curie/) identifiers of 'source' ('start') concepts possibly known to the beacon. Unknown CURIES should simply be ignored (silent match failure). 
+        :param list[str] s: An (optional) array set of [CURIE-encoded](https://www.w3.org/TR/curie/) identifiers of 'source' ('start') concepts possibly known to the beacon. Unknown CURIES should simply be ignored (silent match failure).
         :param list[str] s_keywords: An (optional) array of keywords or substrings against which to filter 'source' concept names and synonyms
-        :param list[str] s_categories: An (optional) array set of 'source' concept categories (specified as Biolink name labels codes gene, pathway, etc.) to which to constrain concepts matched by the main keyword search (see [Biolink Model](https://biolink.github.io/biolink-model) for the full list of codes) 
-        :param str edge_label: (Optional) predicate edge label against which to constrain the search for statements ('edges') associated with the given query seed concept. The predicate edge_names for this parameter should be as published by the /predicates API endpoint and must be taken from the minimal predicate ('slot') list of the [Biolink Model](https://biolink.github.io/biolink-model). 
-        :param str relation: (Optional) predicate relation against which to constrain the search for statements ('edges') associated with the given query seed concept. The predicate relations for this parameter should be as published by the /predicates API endpoint and the preferred format is a CURIE  where one exists, but strings/labels acceptable. This relation may be equivalent to the edge_label (e.g. edge_label: has_phenotype, relation: RO:0002200), or a more specific relation in cases where the source provides more granularity (e.g. edge_label: molecularly_interacts_with, relation: RO:0002447) 
-        :param list[str] t: An (optional) array set of [CURIE-encoded](https://www.w3.org/TR/curie/) identifiers of 'target' ('opposite' or 'end') concepts possibly known to the beacon. Unknown CURIEs should simply be ignored (silent match failure). 
+        :param list[str] s_categories: An (optional) array set of 'source' concept categories (specified as Biolink name labels codes gene, pathway, etc.) to which to constrain concepts matched by the main keyword search (see [Biolink Model](https://biolink.github.io/biolink-model) for the full list of codes)
+        :param str edge_label: (Optional) predicate edge label against which to constrain the search for statements ('edges') associated with the given query seed concept. The predicate edge_names for this parameter should be as published by the /predicates API endpoint and must be taken from the minimal predicate ('slot') list of the [Biolink Model](https://biolink.github.io/biolink-model).
+        :param str relation: (Optional) predicate relation against which to constrain the search for statements ('edges') associated with the given query seed concept. The predicate relations for this parameter should be as published by the /predicates API endpoint and the preferred format is a CURIE  where one exists, but strings/labels acceptable. This relation may be equivalent to the edge_label (e.g. edge_label: has_phenotype, relation: RO:0002200), or a more specific relation in cases where the source provides more granularity (e.g. edge_label: molecularly_interacts_with, relation: RO:0002447)
+        :param list[str] t: An (optional) array set of [CURIE-encoded](https://www.w3.org/TR/curie/) identifiers of 'target' ('opposite' or 'end') concepts possibly known to the beacon. Unknown CURIEs should simply be ignored (silent match failure).
         :param list[str] t_keywords: An (optional) array of keywords or substrings against which to filter 'target' concept names and synonyms
-        :param list[str] t_categories: An (optional) array set of 'target' concept categories (specified as Biolink name labels codes gene, pathway, etc.) to which to constrain concepts matched by the main keyword search (see [Biolink Model](https://biolink.github.io/biolink-model) for the full list of codes) 
-        :param int offset: offset (cursor position) to next batch of statements of amount 'size' to return. 
-        :param int size: maximum number of concept entries requested by the client; if this argument is omitted, then the query is expected to returned all  the available data for the query 
+        :param list[str] t_categories: An (optional) array set of 'target' concept categories (specified as Biolink name labels codes gene, pathway, etc.) to which to constrain concepts matched by the main keyword search (see [Biolink Model](https://biolink.github.io/biolink-model) for the full list of codes)
+        :param int offset: offset (cursor position) to next batch of statements of amount 'size' to return.
+        :param int size: maximum number of concept entries requested by the client; if this argument is omitted, then the query is expected to returned all  the available data for the query
         :return: list[BeaconStatement]
                  If the method is called asynchronously,
                  returns the request thread.

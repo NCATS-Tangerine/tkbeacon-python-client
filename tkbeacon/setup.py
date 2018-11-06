@@ -14,7 +14,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "tkbeacon"
-VERSION = "1.0.0"
+VERSION = "1.3.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -29,12 +29,12 @@ setup(
     version=VERSION,
     description="Translator Knowledge Beacon API",
     author_email="richard@starinformatics.com",
-    url="",
+    url="https://github.com/NCATS-Tangerine/tkbeacon-python-client",
     keywords=["Swagger", "Translator Knowledge Beacon API"],
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,
     long_description="""\
-    This is the Translator Knowledge Beacon web service application programming interface (API).   # noqa: E501
+    This is the Translator Knowledge Beacon web service application programming interface (API).
     """
 )

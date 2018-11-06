@@ -35,6 +35,8 @@ class BeaconClient(ConceptsApi, StatementsApi, MetadataApi):
         else:
             raise Exception('Unrecognized knowlege source: {}'.format(source))
 
+        self.base_url = self.base_url.strip('/')
+
         configuration = Configuration()
         configuration.host = self.base_url
 

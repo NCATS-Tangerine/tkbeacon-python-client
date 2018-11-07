@@ -12,6 +12,8 @@ class KnowledgeSource(Enum):
     BIOLINK = 'https://kba.ncats.io/beacon/biolink/'
     RTX = 'https://kba.ncats.io/beacon/rtx/'
     NDEX = 'https://kba.ncats.io/beacon/ndex/'
+    HMDB = 'https://translator.ncats.io/hmdb-knowledge-beacon/'
+    BIOTHINGS = 'https://kba.ncats.io/beacon/biothings-explorer'
 
 def build(source:Union[KnowledgeSource, str]) -> ApiClient:
     """

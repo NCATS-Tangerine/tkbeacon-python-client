@@ -8,6 +8,6 @@ generate:
 	java -jar swagger-codegen-cli.jar generate -i $(specification) -l python -o . -DpackageName=tkbeacon
 
 upload:
-	# If you get an error it's probably because dist/* is getting the wrong version.
-	# Overwriting is prohibited.
+	rm -rf dist/
+	python setup.py sdist bdist_wheel
 	twine upload --repository-url https://upload.pypi.org/legacy/ dist/*

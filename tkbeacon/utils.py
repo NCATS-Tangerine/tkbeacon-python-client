@@ -8,12 +8,15 @@ from enum import Enum
 class KnowledgeSource(Enum):
     RHEA = 'https://kba.ncats.io/beacon/rhea/'
     SMPDB = 'https://kba.ncats.io/beacon/smpdb/'
-    SEMMED = 'https://kba.ncats.io/beacon/rkb/'
+    SEMMED = 'https://kba.ncats.io/beacon/semmedb/'
     BIOLINK = 'https://kba.ncats.io/beacon/biolink/'
-    RTX = 'https://kba.ncats.io/beacon/rtx/'
     NDEX = 'https://kba.ncats.io/beacon/ndex/'
-    HMDB = 'https://translator.ncats.io/hmdb-knowledge-beacon/'
-    BIOTHINGS = 'https://kba.ncats.io/beacon/biothings-explorer'
+    HMDB = 'https://kba.ncats.io/beacon/hmdb/'
+    #
+    # Deprecated or inactive beacons
+    #
+    # RTX = 'https://kba.ncats.io/beacon/rtx/'
+    # BIOTHINGS = 'https://kba.ncats.io/beacon/biothings-explorer'
 
 def build(source:Union[KnowledgeSource, str]) -> ApiClient:
     """

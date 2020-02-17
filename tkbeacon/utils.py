@@ -5,6 +5,7 @@ from tkbeacon.api.beacon_api import BeaconApi
 from typing import Union
 from enum import Enum
 
+
 class KnowledgeSource(Enum):
     RHEA = 'https://kba.ncats.io/beacon/rhea/'
     SMPDB = 'https://kba.ncats.io/beacon/smpdb/'
@@ -17,6 +18,7 @@ class KnowledgeSource(Enum):
     #
     # RTX = 'https://kba.ncats.io/beacon/rtx/'
     # BIOTHINGS = 'https://kba.ncats.io/beacon/biothings-explorer'
+
 
 def build(source:Union[KnowledgeSource, str]) -> ApiClient:
     """
@@ -45,6 +47,7 @@ def build(source:Union[KnowledgeSource, str]) -> ApiClient:
 
     return BeaconApi(api_client)
 
+
 list_args = [
     'keywords',
     'categories',
@@ -55,6 +58,7 @@ list_args = [
     's_categories',
     't_categories'
 ]
+
 
 def signature_fix_decorator(method):
     def wrapper(*vargs, **kwargs):
@@ -68,11 +72,13 @@ def signature_fix_decorator(method):
         return method(*vargs, **kwargs)
     return wrapper
 
+
 def fix_methods(cls):
     for method_name in dir(cls):
         if method_name.startswith('get_') and not method_name.endswith('_with_http_info'):
             method = getattr(cls, method_name)
             setattr(cls, method_name, signature_fix_decorator(method))
     return cls
+
 
 BeaconApi = fix_methods(BeaconApi)

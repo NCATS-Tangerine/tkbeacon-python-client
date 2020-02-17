@@ -1,5 +1,6 @@
 # BeaconStatementAnnotation
 
+Statement edge properties returned as tag = value pairs 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,10 +1,3 @@
-# Application specific gitignores
-
-# IDE gitignores
-.idea/
-
-swagger-codegen-cli.jar
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -52,7 +45,9 @@ coverage.xml
 *,cover
 .hypothesis/
 venv/
+.venv/
 .python-version
+.pytest_cache
 
 # Translations
 *.mo

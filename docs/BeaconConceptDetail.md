@@ -1,5 +1,6 @@
 # BeaconConceptDetail
 
+Any other metadata returned by the beacon as tag = value 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -153,7 +153,10 @@ if [ "$COMMAND" = validate ]; then
     if [ -z "$2" ]; then
 
 		${OPENAPI_GENERATOR_CLI} validate --input-spec=${CLIENT_SPECIFICATION_FILE_PATH}
-		${OPENAPI_GENERATOR_CLI} validate --input-spec=${SERVER_SPECIFICATION_FILE_PATH}
+		#
+		# No server spec validation here
+		#
+		# ${OPENAPI_GENERATOR_CLI} validate --input-spec=${SERVER_SPECIFICATION_FILE_PATH}
     else
 		${OPENAPI_GENERATOR_CLI} validate --input-spec=$2
     fi

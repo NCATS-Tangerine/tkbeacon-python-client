@@ -263,7 +263,7 @@ used the long form of the flags).
 The above commands are also wrapped inside of a `generate.sh` shell script in the root project directory and 
 may also be invoked using the provide Makefile targets.
 
-##Repairing the Generated Code
+## Repairing the Generated Code
 
 After generating the code stubs, a developer likely needs to repair the regenerated code a bit.
 

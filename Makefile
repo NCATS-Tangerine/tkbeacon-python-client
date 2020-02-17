@@ -15,7 +15,7 @@ installation:
 .PHONY: tests
 
 tests:
-	${PYTHON} -m pip install -r test-requirements.txt && nosetests
+	${PYTHON} -m pip install -r test-requirements.txt && pytest
 
 release:
 	${PYTHON} -m pip install twine

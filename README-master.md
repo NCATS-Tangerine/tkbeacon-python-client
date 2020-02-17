@@ -1,27 +1,36 @@
-# tkbeacon
+# Translator Knowledge Beacon Client
 
-This is the Translator Knowledge Beacon web service application programming interface (API).
+This is a Python client for programmatic access to the Translator Knowledge Beacon web service 
+application programming interface (API).
 
 - API version: 1.3.0
 - Package version: 1.3.0
 
-For more information, please visit [http://starinformatics.com](http://starinformatics.com)
+For more information, please visit 
+[the project web site](https://github.com/NCATS-Tangerine/tkbeacon-python-client.git)
 
 ## Requirements.
 
 Python 3.7+
 
 ## Installation & Usage
-### pip install
+
+The quick way to use the stable version of the client is to use the Pypi published module of the latest release
+(described here below). Note that if your default python binary is not 3.7+, you may wish or need to run the module 
+within a Python virtual environment running Python 3.7 or better.
+
+### Default Installation and Use
+
+For installation of the latest published TKBeacon client in Pypi, type:
 
 ```sh
-pip install tkbeacon
+python3.7 -m pip install tkbeacon
 ```
 
 Alternatively you can install the latest version directly from Github
 
 ```sh
-pip install git+https://github.com/NCATS-Tangerine/tkbeacon-python-client.git
+python3.7 -m pip install git+https://github.com/NCATS-Tangerine/tkbeacon-python-client.git
 ```
 (you may need to run `pip` with root permission: `sudo pip install git+https://github.com/NCATS-Tangerine/tkbeacon-python-client.git`)
 
@@ -30,12 +39,12 @@ Then import the package:
 import tkbeacon
 ```
 
-### Setuptools
+### Installation using Setuptools
 
 Install via [Setuptools](http://pypi.python.org/pypi/setuptools).
 
 ```sh
-python setup.py install --user
+python3.7 setup.py install --user
 ```
 (or `sudo python setup.py install` to install the package for all users)
 
@@ -44,7 +53,7 @@ Then import the package:
 import tkbeacon
 ```
 
-## Getting Started
+# Using the Module
 
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
@@ -70,20 +79,21 @@ except ApiException as e:
 
 Note that the model objects are represented as dictionaries when being printed, but they are not actually dictionaries.
 
+
 ## Documentation for API Endpoints
 
-All URIs are relative to the given source url
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*BeaconApi* | [**get_concept_categories**](docs/BeaconApi.md#get_concept_categories) | **GET** /categories |
-*BeaconApi* | [**get_concept_details**](docs/BeaconApi.md#get_concept_details) | **GET** /concepts/{concept_id} |
-*BeaconApi* | [**get_concepts**](docs/BeaconApi.md#get_concepts) | **GET** /concepts |
-*BeaconApi* | [**get_exact_matches_to_concept_list**](docs/BeaconApi.md#get_exact_matches_to_concept_list) | **GET** /exactmatches |
-*BeaconApi* | [**get_knowledge_map**](docs/BeaconApi.md#get_knowledge_map) | **GET** /kmap |
-*BeaconApi* | [**get_predicates**](docs/BeaconApi.md#get_predicates) | **GET** /predicates |
-*BeaconApi* | [**get_statement_details**](docs/BeaconApi.md#get_statement_details) | **GET** /statements/{statement_id} |
-*BeaconApi* | [**get_statements**](docs/BeaconApi.md#get_statements) | **GET** /statements |
+*BeaconApi* | [**get_concept_categories**](docs/BeaconApi.md#get_concept_categories) | **GET** /categories | 
+*BeaconApi* | [**get_concept_details**](docs/BeaconApi.md#get_concept_details) | **GET** /concepts/{concept_id} | 
+*BeaconApi* | [**get_concepts**](docs/BeaconApi.md#get_concepts) | **GET** /concepts | 
+*BeaconApi* | [**get_exact_matches_to_concept_list**](docs/BeaconApi.md#get_exact_matches_to_concept_list) | **GET** /exactmatches | 
+*BeaconApi* | [**get_knowledge_map**](docs/BeaconApi.md#get_knowledge_map) | **GET** /kmap | 
+*BeaconApi* | [**get_predicates**](docs/BeaconApi.md#get_predicates) | **GET** /predicates | 
+*BeaconApi* | [**get_statement_details**](docs/BeaconApi.md#get_statement_details) | **GET** /statements/{statement_id} | 
+*BeaconApi* | [**get_statements**](docs/BeaconApi.md#get_statements) | **GET** /statements | 
 
 
 ## Documentation For Models
@@ -111,18 +121,107 @@ Class | Method | HTTP request | Description
 
  All endpoints do not require authorization.
 
-
-## Author
+## Authors
 
 richard@starinformatics.com
+lance.hannestad@gmail.com
 
-#### The OpenAPI specifications
+# Working Directly with the latest project code
 
-Refer to the [Python client](./tkbeacon).  
+To play more directly with the code, first clone this repo using git.
 
-#### (Re-)Generating the Translator Knowledge Beacon (TKBeacon) Client
+```
+git clone https://github.com/ncats/translator-modules.git
 
-The *client* is a direct Python web service client implementation.
+# ... then  enter  into your cloned project repository
+cd translator-modules
+```
+
+## Setting up your environment
+
+The code is now validated to work only with Python 3.7 only. We recommend using a virtualenv to enforce this.
+
+```
+virtualenv -p python3.7 venv
+source venv/bin/activate
+```
+
+or, alternately, use python venv to manage packages and the development environment:
+
+```
+python3.7 -m venv venv
+source venv/bin/activate
+```
+
+To exit the environment, type:
+
+```deactivate```
+
+To reenter, source the `activate` command again.
+
+Alternately, you can also use use conda env to manage packages and the development environment:
+
+```
+conda create -n translator-modules python=3.7
+conda activate translator-modules
+```
+Some IDE's (e.g. PyCharm) may also have provisions for directly creating such a virtualenv. This should work fine.
+
+## (Re-)Generating the Translator Knowledge Beacon (TKBeacon) Client from its API Specification
+
+A Makefile is provided which may be used to regenerate the code.
+
+First, there is a `validation` target to check the project OpenAPI specifications, prior to regenerating the code:
+
+```bash
+make api-validation
+```
+
+The *validation* target calls a local shell script `generate.sh` in the root directory of the project.  This script 
+checks for the presence of the OpenAPI Code Generator binary and attempts to install it if it is not yet installed 
+on the computer. This installation may be problematic on some platforms (e.g. Microsoft Windows) but you can also 
+[manually install the OpenAPI Code Generator](https://openapi-generator.tech/docs/installation). If you do this, 
+you may need to override the OPENAPI_GENERATOR_CLI and OPENAPI_GENERATOR_CLI_PATH environment variables used by the 
+generator script.  
+
+Note also that the `openapi-generator-cli` script depends on  `mvn`, `jq` and `curl` to run (these dependencies
+should be installed first).
+
+Even on Unix-type systems, the `generate.sh` script installation of the OpenAPI Code generator may 
+fail if not run as 'sudo' since the binary is being installed under _/usr/local/bin_, thus so you may need to run the 
+above *validation* make target as `sudo` the first time, to ensure a successful installation (however, the 
+installation processes does fix the execute permissions for general access, so 'sudo' should not be needed afterwards).
+ 
+After installing the `openapi-generator` tool and validating the API's, the code may be (re-)generated:
+
+```bash
+make code-generation
+```
+
+After generating the module, it may be installed:
+
+
+```bash
+make installation
+```
+
+then tested. The tests use Python `nosetests` application, which needs to be installed. For example, for Ubuntu Linux:
+ 
+```
+sudo apt install python-nose
+```
+
+will do this. After the `nosetests` application is installed, then the tests may be run:
+
+```bash
+make tests
+```
+
+After installation, the module should be available as noted in the [Using the Module](#using-the-module) section above.
+
+## The Gory Details...
+
+The *client* is a direct Python web service client implementation. Refer to the [Python client](./tkbeacon).  
 
 The implementation of the *TKBeacon* client uses code generation from the 
 [OpenAPI NCATS Knowledge Beacon specification](knowledge-beacon-OA3-api_1-3-0.yaml), 
@@ -164,12 +263,12 @@ used the long form of the flags).
 The above commands are also wrapped inside of a `generate.sh` shell script in the root project directory and 
 may also be invoked using the provide Makefile targets.
 
-#### Repairing the Generated Code
+##Repairing the Generated Code
 
 After generating the code stubs, a developer likely needs to repair the regenerated code a bit.
 
-the *tkbeacon* subdirectory _README.md_ file are overwritten by the code generation. 
-These should be restored from the \*-master.\* versions of these files in each directory.
+the *tkbeacon* subdirectory _README.md_ and `.gitignore` files are overwritten by the code generation. 
+These should be merge/restored from the \*-master.\* versions of these files in each directory.
  
 For good measure, after such extensive rebuilding of the libraries, the 'pip' environment dependencies should also 
 be updated, as documented for the client , prior to re-testing and using the updated software.

@@ -139,7 +139,7 @@ Note that depending on how you install the OpenAPI Code Generator, the manner in
 The code generation commands are generally run from the root project directory directory.  First, one should check 
 your new or modified OpenAPI YAML specifications using the _validate_ command:
 
-```bash
+```
 openapi-generator validate (-i | --input-spec=)knowledge-beacon-api-1-3-0.yaml
 ```
 

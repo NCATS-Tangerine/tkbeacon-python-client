@@ -19,7 +19,7 @@ OPENAPI_GENERATOR_CLI_PATH="/usr/local/bin/${OPENAPI_GENERATOR_CLI}"
 # guiding the generation of the server and client projects (these may be overridden in the invoking environment)
 PROJECT_NAME="TKBeacon"
 
-CLIENT_SPECIFICATION_FILE_PATH="./knowledge-beacon-api-OA3_1-3-0.yaml"
+CLIENT_SPECIFICATION_FILE_PATH="./knowledge-beacon-OA3-api_1-3-0.yaml"
 CLIENT_OUTPUT_DIR="tkbeacon"
 CLIENT_PROJECT_NAME="${PROJECT_NAME}_${CLIENT_OUTPUT_DIR}"
 CLIENT_PACKAGE_NAME="tkbeacon"

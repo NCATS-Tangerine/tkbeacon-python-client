@@ -14,7 +14,8 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "tkbeacon"
-VERSION = "1.3.0.post2"
+VERSION = "1.3.0.openapi3"
+
 # To install the library, run the following
 #
 # python setup.py install

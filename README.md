@@ -12,6 +12,7 @@ For more information, please visit [http://starinformatics.com](http://starinfor
 Python 3.7+
 
 ## Installation & Usage
+
 ### pip install
 
 ```sh
@@ -116,23 +117,60 @@ Class | Method | HTTP request | Description
 
 richard@starinformatics.com
 
-#### The OpenAPI specifications
+# Updating the TKBeacon from the Current API Specification
 
-Refer to the [Python client](./tkbeacon).  
+The "gory" details of code regeneration are provided below this section but generally speaking, a Makefile 
+is provided which may be conveniently used to trigger regeneration of the client.
 
-#### (Re-)Generating the Translator Knowledge Beacon (TKBeacon) Client
+There is a `validation` target to check the project OpenAPI specifications, prior to regenerating the code:
 
-The *client* is a direct Python web service client implementation.
+```bash
+make api-validation
+```
 
-The implementation of the *TKBeacon* client uses code generation from the 
-[OpenAPI NCATS Knowledge Beacon specification](knowledge-beacon-api_1-3-0.yaml), 
-which is used as a template to generate the code base, which is then wired up by delegation to additional handler code.   
+The *validation* target calls a local shell script `generate.sh` in the root directory of the project.  This script 
+checks for the presence of the OpenAPI Code Generator binary and attempts to install it if it is not yet installed 
+on the computer. This installation may be problematic on some platforms (e.g. Microsoft Windows) but you can also 
+[manually install the OpenAPI Code Generator](https://openapi-generator.tech/docs/installation). If you do this, 
+you may need to override the OPENAPI_GENERATOR_CLI and OPENAPI_GENERATOR_CLI_PATH environment variables used by the 
+generator script.  
+
+Note also that the `openapi-generator-cli` script depends on  `mvn`, `jq` and `curl` to run (these dependencies
+should be installed first).
+
+Even on Unix-type systems, the `generate.sh` script installation of the OpenAPI Code generator may 
+fail if not run as 'sudo' since the binary is being installed under _/usr/local/bin_, thus so you may need to run the 
+above *validation* make target as `sudo` the first time, to ensure a successful installation (however, the 
+installation processes does fix the execute permissions for general access, so 'sudo' should not be needed afterwards).
  
-The generated and other client/server code is found in the *TKBeacon* subfolder.
+After installing the `openapi-generator` tool and validating the API's, the code may be (re-)generated:
+
+```bash
+make code-generation
+```
+
+# The Gory Details...
+
+Ideally, the aforementioned `make` process using the default values in the `generate.sh` script should work but, 
+just in case, we provide more details on the whole code generation procedure here below (review also the contents 
+of the `generate.sh` script for code generation customisations feasible simply using OS shell environment variables).
+
+##The OpenAPI specifications
+
+Refer to the [Python client](./tkbeacon) for details.  
+
+## (Re-)Generating the Translator Knowledge Beacon (TKBeacon) Client
+
+The *TKBeacon* client is a direct Python web service client implementation of the 
+[NCATS Knowledge Beacon OpenAPI specification](knowledge-beacon-api_1-3-0.yaml), 
+which is used as a template to generate the code stubs into the `tkbeacon` subfolder, to which some 
+additional support code may be added.   
 
 By [installing a local copy of the OpenAPI Code Generator](https://openapi-generator.tech/docs/installation), 
-modified OpenAPI 3.0 YAML specifications can be processed to recreate the Python client stubs.
-Note that depending on how you install the OpenAPI Code Generator, the manner in which you execute the 
+modified OpenAPI 3.0 YAML specifications can be processed to recreate the Python client stubs (Note that running the 
+`generate.sh` shell will itself automatically install the OpenAPI code generated if not already present).
+
+Depending on how you install the OpenAPI Code Generator, the manner in which you execute the 
  `openapi-generator` command below will change accordingly (Note that the code generation processes are a bit more 
  streamlined and robust under Linux and OSX than Microsoft Windows).
 
@@ -164,12 +202,14 @@ used the long form of the flags).
 The above commands are also wrapped inside of a `generate.sh` shell script in the root project directory and 
 may also be invoked using the provide Makefile targets.
 
-#### Repairing the Generated Code
+## Repairing the Generated Code
 
-After generating the code stubs, a developer likely needs to repair the regenerated code a bit.
+After generating the code stubs, a developer may need to repair some of the regenerated files where previous 
+customised content was overwritten by the new code generation session.
 
-the *tkbeacon* subdirectory _README.md_ file are overwritten by the code generation. 
-These should be restored from the \*-master.\* versions of these files in each directory.
+For example, in the *tkbeacon* subfolder, the _README.md_ file is overwritten by the code generation. 
+This file should be restored using the \*-master.\* versions of these files in each directory (note that you can 
+als update this master file as required to reflect the latest cycle of API code changes).
  
 For good measure, after such extensive rebuilding of the libraries, the 'pip' environment dependencies should also 
 be updated, as documented for the client , prior to re-testing and using the updated software.

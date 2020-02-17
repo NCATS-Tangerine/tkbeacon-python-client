@@ -162,7 +162,7 @@ Refer to the [Python client](./tkbeacon) for details.
 ## (Re-)Generating the Translator Knowledge Beacon (TKBeacon) Client
 
 The *TKBeacon* client is a direct Python web service client implementation of the 
-[NCATS Knowledge Beacon OpenAPI specification](knowledge-beacon-api_1-3-0.yaml), 
+[NCATS Knowledge Beacon OpenAPI specification](knowledge-beacon-OA3-api_1-3-0.yaml), 
 which is used as a template to generate the code stubs into the `tkbeacon` subfolder, to which some 
 additional support code may be added.   
 

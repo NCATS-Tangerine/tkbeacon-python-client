@@ -125,7 +125,7 @@ Refer to the [Python client](./tkbeacon).
 The *client* is a direct Python web service client implementation.
 
 The implementation of the *TKBeacon* client uses code generation from the 
-[OpenAPI NCATS Knowledge Beacon specification](knowledge-beacon-api_1-3-0.yaml), 
+[OpenAPI NCATS Knowledge Beacon specification](knowledge-beacon-OA3-api_1-3-0.yaml), 
 which is used as a template to generate the code base, which is then wired up by delegation to additional handler code.   
  
 The generated and other client/server code is found in the *TKBeacon* subfolder.

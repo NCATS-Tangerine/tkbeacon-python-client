@@ -178,14 +178,14 @@ The code generation commands are generally run from the root project directory d
 your new or modified OpenAPI YAML specifications using the _validate_ command:
 
 ```bash
-openapi-generator validate (-i | --input-spec=)knowledge-beacon-api-1-3-0.yaml
+openapi-generator validate (-i | --input-spec=)knowledge-beacon-api_1-3-0.yaml
 ```
 
 If the specifications pass muster, then to recreate the Python Flask *client* Python access stubs, 
 something along the lines of the following command is typed:
 
 ```bash
-openapi-generator generate  --input-spec=knowledge-beacon-api-1-3-0.yaml \
+openapi-generator generate  --input-spec=knowledge-beacon-api_1-3-0.yaml \
                     --output=client \
                     --generator-name=python \
                     --package-name=ara_client \

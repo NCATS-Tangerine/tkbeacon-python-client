@@ -1,10 +1,7 @@
-specification = api1.3.0.yaml
+PYTHON=python3.7
 
 dev-install:
-	pip install -e .
-
-install:
-	python setup.py install
+	 ${PYTHON} -m pip install -e .
 
 api-validation:
 	./generate.sh validate
@@ -12,17 +9,17 @@ api-validation:
 code-generation:
 	./generate.sh client
 
-client-installation:
-	cd tkbeacon && python -m pip install -r requirements.txt . --no-cache-dir
+installation:
+	${PYTHON} -m pip install -r requirements.txt . --no-cache-dir
 
-.PHONY: client-tests
+.PHONY: tests
 
-client-tests:
-	cd tkbeacon && python -m pip install -r test-requirements.txt && nosetests
+tests:
+	${PYTHON} -m pip install -r test-requirements.txt && nosetests
 
 release:
-	pip install twine
+	${PYTHON} -m pip install twine
 	rm -rf dist/
 	rm -rf build/
-	python setup.py sdist bdist_wheel
+	${PYTHON} setup.py sdist bdist_wheel
 	twine upload --repository-url https://upload.pypi.org/legacy/ dist/*

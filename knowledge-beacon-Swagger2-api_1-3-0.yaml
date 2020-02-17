@@ -270,7 +270,7 @@ paths:
             type: string
         - name: offset
           in: query
-          min: 0
+          minimum: 0
           description: >
             offset (cursor position) to next batch of statements of amount
             'size' to return.
@@ -278,7 +278,7 @@ paths:
           type: integer
         - name: size
           in: query
-          min: 0
+          minimum: 0
           description: >
             maximum number of concept entries requested by the client; if this
             argument is omitted, then the query is expected to returned all the
@@ -624,7 +624,7 @@ paths:
             type: string
         - name: offset
           in: query
-          min: 0
+          minimum: 0
           description: >
             offset (cursor position) to next batch of statements of amount
             'size' to return.
@@ -632,7 +632,7 @@ paths:
           type: integer
         - name: size
           in: query
-          min: 0
+          minimum: 0
           description: >
             maximum number of concept entries requested by the client; if this
             argument is omitted, then the query is expected to returned all  the
@@ -774,7 +774,7 @@ paths:
             type: string
         - name: offset
           in: query
-          min: 0
+          minimum: 0
           description: >
             offset (cursor position) to next batch of annotation entries of
             amount 'size' to return.
@@ -782,7 +782,7 @@ paths:
           type: integer
         - name: size
           in: query
-          min: 0
+          minimum: 0
           description: >
             maximum number of evidence citation entries requested by the client;
             if this  argument is omitted, then the query is expected to returned

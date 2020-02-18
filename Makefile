@@ -17,7 +17,7 @@ installation:
 tests:
 	${PYTHON} -m pip install -r test-requirements.txt && pytest
 
-make-distribution:
+distribution:
 	${PYTHON} -m pip install wheel twine
 	rm -rf dist/
 	rm -rf build/

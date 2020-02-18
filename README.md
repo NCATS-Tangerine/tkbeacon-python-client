@@ -208,13 +208,13 @@ After generating the module, it may be installed:
 make installation
 ```
 
-then tested. The tests use Python `nosetests` application, which needs to be installed. For example, for Ubuntu Linux:
+then tested. The tests use Python `pytest` application, which needs to be installed. For example, for Ubuntu Linux:
  
 ```
-sudo apt install python-nose
+python3 -m pip install -U pytest
 ```
 
-will do this. After the `nosetests` application is installed, then the tests may be run:
+will do this. After the `pytest` application is installed, then the tests may be run:
 
 ```bash
 make tests

@@ -79,8 +79,9 @@ except ApiException as e:
   print("Exception when calling BeaconApi->get_concepts: %s\n" % e)
 ```
 
-Note that the model objects are represented as dictionaries when being printed, but they are not actually dictionaries.
+This sample snippet of code is available in the project as `beacon-sample-script.py`.
 
+Note that the model objects are represented as dictionaries when being printed, but they are not actually dictionaries.
 
 ## Documentation for API Endpoints
 

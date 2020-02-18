@@ -20,7 +20,7 @@ class KnowledgeSource(Enum):
     # BIOTHINGS = 'https://kba.ncats.io/beacon/biothings-explorer'
 
 
-def build(source:Union[KnowledgeSource, str]) -> ApiClient:
+def build(source:Union[KnowledgeSource, str]) -> BeaconApi:
     """
     Constructs a new BeaconApi pointing at the source
     """

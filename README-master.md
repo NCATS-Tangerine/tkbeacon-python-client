@@ -55,10 +55,12 @@ import tkbeacon
 
 # Using the Module
 
-Please follow the [installation procedure](#installation--usage) and then run the following:
+Please follow the [installation procedure](#installation--usage) and then run the following code snippet to test:
 
 ```python
+#!/usr/bin/env python
 from __future__ import print_function
+
 from tkbeacon import build, KnowledgeSource
 from tkbeacon.rest import ApiException
 

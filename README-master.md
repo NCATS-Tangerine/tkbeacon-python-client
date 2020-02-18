@@ -4,7 +4,7 @@ This is a Python client for programmatic access to the Translator Knowledge Beac
 application programming interface (API).
 
 - API version: 1.3.0
-- Package version: 1.3.0
+- Package version: 1.3.0.R3
 
 For more information, please visit 
 [the project web site](https://github.com/NCATS-Tangerine/tkbeacon-python-client.git)

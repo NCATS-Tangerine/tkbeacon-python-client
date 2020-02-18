@@ -17,9 +17,14 @@ installation:
 tests:
 	${PYTHON} -m pip install -r test-requirements.txt && pytest
 
-release:
-	${PYTHON} -m pip install twine
+make-distribution:
+	${PYTHON} -m pip install wheel twine
 	rm -rf dist/
 	rm -rf build/
 	${PYTHON} setup.py sdist bdist_wheel
+
+test-release:
+	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+
+release:
 	twine upload --repository-url https://upload.pypi.org/legacy/ dist/*

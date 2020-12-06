@@ -126,8 +126,8 @@ Class | Method | HTTP request | Description
 
 ## Authors
 
-richard@starinformatics.com
-lance.hannestad@gmail.com
+- richard@starinformatics.com
+- lance.hannestad@gmail.com
 
 # Working Directly with the latest project code
 

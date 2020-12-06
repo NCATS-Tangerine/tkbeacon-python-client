@@ -53,6 +53,7 @@ venv/
 .venv/
 .python-version
 .pytest_cache
+py*/
 
 # Translations
 *.mo

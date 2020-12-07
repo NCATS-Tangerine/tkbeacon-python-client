@@ -8,13 +8,15 @@ from tkbeacon.rest import ApiException
 b = build(KnowledgeSource.SMPDB)
 
 try:
-  concepts = b.get_concepts(categories=['protein'], size=10)
+    concepts = b.get_concepts(keywords=['Glutamate'], categories=['protein'], size=10)
 
-  for concept in concepts:
-    print(concept.id, concept.name)
+    for concept in concepts:
+        print(concept.id, concept.name)
 
-  print('All results are proteins:', all('protein' in concept.categories for concept in concepts))
+    print(
+        'All results are proteins:',
+        all('protein' in concept.categories for concept in concepts)
+    )
 
 except ApiException as e:
-  print("Exception when calling BeaconApi->get_concepts: %s\n" % e)
-
+    print("Exception when calling BeaconApi->get_concepts: %s\n" % e)
